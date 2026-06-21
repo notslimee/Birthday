@@ -353,12 +353,13 @@ export default function ParticleBackground({ scrollYProgress }: ParticleBackgrou
     const POOL_SIZE = 4;
     const starPool: HTMLAudioElement[] = [];
     const planetPool: HTMLAudioElement[] = [];
+    const basePath = process.env.NODE_ENV === 'production' ? '/Birthday' : '';
     for (let i = 0; i < POOL_SIZE; i++) {
-      const s = new Audio("/STAR.mp3");
+      const s = new Audio(`${basePath}/STAR.mp3`);
       s.volume = 0.12;
       s.preload = "auto";
       starPool.push(s);
-      const p = new Audio("/PLANET.mp3");
+      const p = new Audio(`${basePath}/PLANET.mp3`);
       p.volume = 0.10;
       p.preload = "auto";
       planetPool.push(p);

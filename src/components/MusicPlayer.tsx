@@ -17,7 +17,8 @@ export default function MusicPlayer() {
   const isPlayingRef = useRef<boolean>(false);
   
   useEffect(() => {
-    const audio = new Audio("/Christina-Perri-Thousand-Years.mp3");
+    const basePath = process.env.NODE_ENV === 'production' ? '/Birthday' : '';
+    const audio = new Audio(`${basePath}/Christina-Perri-Thousand-Years.mp3`);
     audio.loop = true;
     audio.volume = 0.4;
     audio.crossOrigin = "anonymous";
