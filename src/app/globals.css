@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #030014;
+  --color-foreground: #e8e0f0;
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
+  --color-star-gold: #fbbf24;
+  --color-star-blue: #60a5fa;
+  --color-accent-rose: #f472b6;
+  --color-accent-violet: #a78bfa;
+  --color-accent-indigo: #818cf8;
+  --color-cosmic-dark: #030014;
+  --color-cosmic-deep: #0a0520;
+  --color-cosmic-mid: #1a103d;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cosmic-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-accent-violet), var(--color-accent-rose));
+  border-radius: 999px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent-violet) var(--color-cosmic-dark);
+}
+
+body {
+  background: var(--color-cosmic-dark);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Full screen section base */
+.chapter-section {
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+}
+
+/* Text glow effects */
+.text-glow-gold {
+  text-shadow: 0 0 20px rgba(251, 191, 36, 0.5), 0 0 40px rgba(251, 191, 36, 0.2);
+}
+
+.text-glow-blue {
+  text-shadow: 0 0 20px rgba(96, 165, 250, 0.5), 0 0 40px rgba(96, 165, 250, 0.2);
+}
+
+.text-glow-rose {
+  text-shadow: 0 0 20px rgba(244, 114, 182, 0.5), 0 0 40px rgba(244, 114, 182, 0.2);
+}
+
+.text-glow-violet {
+  text-shadow: 0 0 20px rgba(167, 139, 250, 0.5), 0 0 40px rgba(167, 139, 250, 0.2);
+}
+
+.text-glow-white {
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.4), 0 0 60px rgba(255, 255, 255, 0.15);
+}
+
+/* Star pulse animation */
+@keyframes starPulse {
+  0%, 100% {
+    filter: brightness(1) drop-shadow(0 0 8px currentColor);
+    transform: scale(1);
+  }
+  50% {
+    filter: brightness(1.4) drop-shadow(0 0 20px currentColor);
+    transform: scale(1.1);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes letterSpacing {
+  0%, 100% { letter-spacing: 0.3em; }
+  50% { letter-spacing: 0.5em; }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.15); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.15); }
+  70% { transform: scale(1); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.animate-heartbeat {
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+.animate-letter-spacing {
+  animation: letterSpacing 4s ease-in-out infinite;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-star-gold), var(--color-accent-rose), var(--color-accent-violet), var(--color-star-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 300% 300%;
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Cosmic divider */
+.cosmic-divider {
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-accent-violet), transparent);
+  margin: 1.5rem auto;
+}
+
+/* Chapter number styling */
+.chapter-number {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(167, 139, 250, 0.5);
+}
+
+/* Birthday card special styling */
+.birthday-card {
+  background: linear-gradient(
+    145deg,
+    rgba(167, 139, 250, 0.08),
+    rgba(244, 114, 182, 0.06),
+    rgba(251, 191, 36, 0.04)
+  );
+  border: 1px solid rgba(167, 139, 250, 0.15);
+  backdrop-filter: blur(20px);
+  border-radius: 1.5rem;
+}
+
+/* Connection line between stars */
+.connection-line {
+  background: linear-gradient(90deg, var(--color-star-gold), var(--color-accent-rose), var(--color-star-blue));
+  height: 1px;
+  opacity: 0.4;
+}
